@@ -1,3 +1,5 @@
+
+
 class Player
 {
   PVector pos;
@@ -10,6 +12,9 @@ class Player
   char button2;
   int index;
   color colour;
+  
+
+
     
   Player()
   {
@@ -19,6 +24,10 @@ class Player
   Player(int index, color colour, char up, char down, char left, char right, char start, char button1, char button2)
   {
     this();
+    
+    
+    ellipse(50, 50, 50,50);
+    
     this.index = index;
     this.colour = colour;
     this.up = up;
@@ -79,7 +88,8 @@ class Player
   void display()
   {    
     stroke(colour);
-    fill(colour);    
-    rect(pos.x, pos.y, 20, 20);
+    fill(colour);
+   ellipse(pos.x, pos.y, 50, 50);
+
   }  
 }

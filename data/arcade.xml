@@ -9,14 +9,5 @@
 		<button1>e</button1>
 		<button2>r</button2>
 	</player>
-	<player>
-		<up>i</up>
-		<down>k</down>
-		<left>j</left>
-		<right>l</right>
-		<start>p</start>
-		<insertcoin>5</insertcoin>
-		<button1>p</button1>
-		<button2>[</button2>
-	</player>
+	
 </arcade>	
