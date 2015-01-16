@@ -1,3 +1,4 @@
 class player1
 {
+}
   

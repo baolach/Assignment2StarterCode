@@ -29,6 +29,12 @@ void draw()
   }
 }
 
+void initiailize()
+{
+  addScreen("mylevel" new MyLevel( height, width); // make a new level of type 'MyLevel'
+  
+}
+
 void keyPressed()
 {
   keys[keyCode] = true;
