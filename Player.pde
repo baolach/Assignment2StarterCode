@@ -1,6 +1,4 @@
-
-
-class Player extends GameObject
+class Player extends GameObject // any variables in gameobject are global
 {
   PVector pos;
   char up;
@@ -18,7 +16,7 @@ class Player extends GameObject
     
   Player()
   {
-    pos = new PVector(width / 3, height / 3);
+    pos = new PVector(width / 5, height / 3); // position of cassie
   }
   
   Player(int index, color colour, char up, char down, char left, char right, char start, char button1, char button2)
@@ -87,7 +85,7 @@ class Player extends GameObject
     if( checkKey(right))
     {
       currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
-      int offset = 0;
+      int offset = 0; // which frame
     
       for (int x = -100; x < width; x += images[0].width) 
       { 
@@ -101,15 +99,15 @@ class Player extends GameObject
       currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
       int offset = 0;
     
-      for (int x = -100; x < width; x += images_images[0].width) 
+      for (int x = -100; x < width; x += images2[0].width) 
       { 
-        image(images_images[(currentFrame+offset) % numFrames], pos.x, pos.y);   
+        image(images2[(currentFrame+offset) % numFrames], pos.x, pos.y);   
       }
     }
     
     if( (checkKey(left) == false) && (checkKey(right) == false) )
     {
-      for (int x = -100; x < width; x += images_images[0].width) 
+      for (int x = -100; x < width; x += images2[0].width) 
       { 
         image(cassie, pos.x,pos.y);
       }

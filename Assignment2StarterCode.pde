@@ -1,9 +1,7 @@
 /*
     DIT OOP Assignment 2 Starter Code
     =================================
-    
-    Loads player properties from an xml file
-    See: https://github.com/skooter500/DT228-OOP 
+   
 */
 
 ArrayList<GameObject> objects = new ArrayList<GameObject>();
@@ -13,7 +11,7 @@ PImage cassie;
 int numFrames = 2;  // The number of frames in the animation
 int currentFrame = 0;
 PImage[] images = new PImage[numFrames];
-PImage[] images_images = new PImage[numFrames];
+PImage[] images2 = new PImage[numFrames];
 
 Level levelOne = new Level(100,10, 50, 10);
 
@@ -32,8 +30,8 @@ void setup()
   images[0]  = loadImage("walking2.bmp");
   images[1]  = loadImage("walking1.bmp"); 
   
-  images_images[0]  = loadImage("walking2left.bmp");
-  images_images[1]  = loadImage("walking1left.bmp"); 
+  images2[0]  = loadImage("walking2left.bmp");
+  images2[1]  = loadImage("walking1left.bmp"); 
   
   objects.add(levelOne);
 }
