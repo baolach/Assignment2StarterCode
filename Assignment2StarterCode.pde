@@ -6,7 +6,7 @@
     See: https://github.com/skooter500/DT228-OOP 
 */
 
-ArrayList<Player> players = new ArrayList<Player>();
+ArrayList<GameObject> objects = new ArrayList<GameObject>();
 boolean[] keys = new boolean[526];
 PImage cassie;
 
@@ -15,6 +15,7 @@ int currentFrame = 0;
 PImage[] images = new PImage[numFrames];
 PImage[] images_images = new PImage[numFrames];
 
+Level levelOne = new Level(100,10, 50, 10);
 
 
 
@@ -33,16 +34,16 @@ void setup()
   
   images_images[0]  = loadImage("walking2left.bmp");
   images_images[1]  = loadImage("walking1left.bmp"); 
-
+  
+  objects.add(levelOne);
 }
 
 void draw()
 {
-  for(Player player:players)
+  for(GameObject object: objects)
   {
-    player.update();
-    player.display();
-
+    object.update();
+    object.display();
   }
 }
 
@@ -102,6 +103,6 @@ void setUpPlayerControllers()
           int x = (i + 1) * gap;
           p.pos.x = x;
           p.pos.y = 300;
-         players.add(p);         
+         objects.add(p);         
   }
 }

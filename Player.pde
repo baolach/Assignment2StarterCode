@@ -1,6 +1,6 @@
 
 
-class Player
+class Player extends GameObject
 {
   PVector pos;
   char up;
