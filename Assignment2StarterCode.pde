@@ -8,15 +8,32 @@
 
 ArrayList<Player> players = new ArrayList<Player>();
 boolean[] keys = new boolean[526];
-  PImage enemy;
+PImage cassie;
+
+int numFrames = 2;  // The number of frames in the animation
+int currentFrame = 0;
+PImage[] images = new PImage[numFrames];
+PImage[] images_images = new PImage[numFrames];
+
+
+
 
 
 void setup()
 {
   size(500, 500);
   setUpPlayerControllers();
-  background(10);
-  enemy = loadImage("dk1.bmp");
+  background(6);
+  cassie = loadImage("cassie.bmp");
+  
+  
+  frameRate(37);
+  images[0]  = loadImage("walking2.bmp");
+  images[1]  = loadImage("walking1.bmp"); 
+  
+  images_images[0]  = loadImage("walking2left.bmp");
+  images_images[1]  = loadImage("walking1left.bmp"); 
+
 }
 
 void draw()
@@ -29,11 +46,7 @@ void draw()
   }
 }
 
-void initiailize()
-{
-  addScreen("mylevel" new MyLevel( height, width); // make a new level of type 'MyLevel'
-  
-}
+
 
 void keyPressed()
 {

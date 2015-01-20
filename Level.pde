@@ -1,7 +1,4 @@
-class MyLevel extends Level
+class player1
 {
-  MyLevel( float width, float height)
-  {
-    super(width, height);
-  }
 }
+  
