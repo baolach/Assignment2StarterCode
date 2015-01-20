@@ -10,13 +10,15 @@ class Player extends GameObject // any variables in gameobject are global
   char button2;
   int index;
   color colour;
+  //float cassieStartX = (width / 10);
+  //float cassieStartY = height - (height /5);
   
 
 
     
   Player()
   {
-    pos = new PVector(width / 5, height / 3); // position of cassie
+    pos = new PVector(width / 10, height / 3); // position of cassie
   }
   
   Player(int index, color colour, char up, char down, char left, char right, char start, char button1, char button2)
@@ -52,19 +54,19 @@ class Player extends GameObject // any variables in gameobject are global
   {
     if (checkKey(up))
     {
-      pos.y -= 1;
+      pos.y -= 2;
     }
     if (checkKey(down))
     {
-      pos.y += 1;
+      pos.y += 2;
     }
     if (checkKey(left))
     {
-      pos.x -= 1;
+      pos.x -= 2;
     }    
     if (checkKey(right))
     {
-      pos.x += 1;
+      pos.x += 2;
     }
     if (checkKey(start))
     {
@@ -109,7 +111,7 @@ class Player extends GameObject // any variables in gameobject are global
     {
       for (int x = -100; x < width; x += images2[0].width) 
       { 
-        image(cassie, pos.x,pos.y);
+        image(cassie, pos.x, pos.y);
       }
     }
 

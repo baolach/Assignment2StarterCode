@@ -1,34 +1,52 @@
 /*
     DIT OOP Assignment 2 Starter Code
     =================================
+    
+    Use translations and rotations
+    push and pop matrix
+    
+    the Level levelOne = new Level(dfdfsfds) can be different to the co ordinates of the line in the Level tab <<<< None of them seem to matter
+    what does the add.objects in setup on this page do?
+    
+    I cant change the pos.x to the bottom left corner
+    
+    
+    
+    Add in ladder
    
 */
 
-ArrayList<GameObject> objects = new ArrayList<GameObject>();
+ArrayList<GameObject> objects = new ArrayList<GameObject>(); // an array list of objects . ie. a number of objects that can be reference by object.get(i)
 boolean[] keys = new boolean[526];
 PImage cassie;
+PImage ladder;
 
-int numFrames = 2;  // The number of frames in the animation
+
+int numFrames = 2;  // The number of pictures in the animation
 int currentFrame = 0;
 PImage[] images = new PImage[numFrames];
 PImage[] images2 = new PImage[numFrames];
 
-Level levelOne = new Level(100,10, 50, 10);
+Level levelOne = new Level(0,650,650,650); // this creates the object
+
 
 
 
 
 void setup()
 {
-  size(500, 500);
+  size(650, 650);
   setUpPlayerControllers();
-  background(6);
+  background(10);
   cassie = loadImage("cassie.bmp");
+  ladder = loadImage("ladder.bmp");
+
+
   
   
   frameRate(37);
-  images[0]  = loadImage("walking2.bmp");
-  images[1]  = loadImage("walking1.bmp"); 
+  images[0] = loadImage("walking2.bmp");
+  images[1] = loadImage("walking1.bmp"); 
   
   images2[0]  = loadImage("walking2left.bmp");
   images2[1]  = loadImage("walking1left.bmp"); 
@@ -99,8 +117,8 @@ void setUpPlayerControllers()
             , color(255,0,0)
             , playerXML);
           int x = (i + 1) * gap;
-          p.pos.x = x;
-          p.pos.y = 300;
+          p.pos.x = width / 15;
+          p.pos.y = height - (height / 6);
          objects.add(p);         
   }
 }
