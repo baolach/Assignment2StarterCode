@@ -26,14 +26,24 @@ class Level extends GameObject
 
   void display()
   {
+    
+    ////////////////////////////////////////////////change all these into vector positions ///////////////////////////////////////////////////////////////////////////////////////////
     strokeWeight(25);
     line( 0,160,650,160); // top floor
     line( 0,280,650,280); // third floor
     line( 0,400,650,400); // second floor
     line( 0,520,650,520); // first floor
     line( 0,650,650,650); // ground
-    /*
-   image(ladder, ladder1.x, ladder1.y);
+    
+   image(ladder, 550, 475); // ladder 1
+   image(ladder, 100, 345); // ladder 2
+   image(ladder, 500, 225); // ladder 3
+   image(ladder, 130, 105); // ladder 4
+   
+   image(food, 600, 125 );
+
+
+   /*
    image(ladder, ladder2.x, ladder2.y);
    image(ladder, ladder3.x, ladder3.y);
    image(ladder, ladder4.x, ladder4.y);

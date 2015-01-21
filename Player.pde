@@ -52,14 +52,20 @@ class Player extends GameObject // any variables in gameobject are global
   
   void update()
   {
+    /*
     if (checkKey(up))
     {
+      //if ( pos.x == ladder1 position)
+      
       pos.y -= 2;
     }
     if (checkKey(down))
     {
+      if ( pos.x == ladder1 position)
+
       pos.y += 2;
     }
+    */
     if (checkKey(left))
     {
       pos.x -= 2;
@@ -109,10 +115,8 @@ class Player extends GameObject // any variables in gameobject are global
     
     if( (checkKey(left) == false) && (checkKey(right) == false) )
     {
-      for (int x = -100; x < width; x += images2[0].width) 
-      { 
-        image(cassie, pos.x, pos.y);
-      }
+        
+       image(cassie, pos.x, pos.y);
     }
 
     

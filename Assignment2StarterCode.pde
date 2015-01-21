@@ -12,7 +12,7 @@
     
     
     
-    Add in ladder
+    Add in ladder using vectors and not just positions
    
 */
 
@@ -20,12 +20,14 @@ ArrayList<GameObject> objects = new ArrayList<GameObject>(); // an array list of
 boolean[] keys = new boolean[526];
 PImage cassie;
 PImage ladder;
+PImage food;
 
 
 int numFrames = 2;  // The number of pictures in the animation
 int currentFrame = 0;
 PImage[] images = new PImage[numFrames];
 PImage[] images2 = new PImage[numFrames];
+
 
 Level levelOne = new Level(0,650,650,650); // this creates the object
 
@@ -37,9 +39,10 @@ void setup()
 {
   size(650, 650);
   setUpPlayerControllers();
-  background(10);
   cassie = loadImage("cassie.bmp");
   ladder = loadImage("ladder.bmp");
+  food = loadImage("food.bmp");
+
 
 
   
@@ -51,11 +54,16 @@ void setup()
   images2[0]  = loadImage("walking2left.bmp");
   images2[1]  = loadImage("walking1left.bmp"); 
   
+
+  
   objects.add(levelOne);
 }
 
 void draw()
 {
+    background(10);
+
+  
   for(GameObject object: objects)
   {
     object.update();
@@ -117,8 +125,8 @@ void setUpPlayerControllers()
             , color(255,0,0)
             , playerXML);
           int x = (i + 1) * gap;
-          p.pos.x = width / 15;
-          p.pos.y = height - (height / 6);
+          p.pos.x = width / 15; // position of cassie
+          p.pos.y = height - (height / 7);
          objects.add(p);         
   }
 }

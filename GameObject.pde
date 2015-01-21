@@ -4,6 +4,6 @@ class GameObject
   {
   }
   void display()
-  {
+  {   
   }
 }
