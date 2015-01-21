@@ -7,55 +7,57 @@ Constructor methods take the same name as the class.
 class Level extends GameObject
 {
    //levels
-  color colour = 0;
+  color colour = #FF003C; // pinky red
   PVector startPos;
   PVector endPos;
 
 
-// dont know how it works coz its doing random shit
 
-  Level(float x1, float y1, float x2, float y2) // constructor
+  Level(float x1, float y1, float x2, float y2) // constructor creating the co ordinates for each floor
   {
-    this.colour = color(0);
+    this.colour = colour;
     this.startPos = new PVector(x1, y1);
     this.endPos = new PVector(x2, y2);
   }
-  
- 
 
 
   void display()
   {
     
-    ////////////////////////////////////////////////change all these into vector positions ///////////////////////////////////////////////////////////////////////////////////////////
     strokeWeight(25);
-    line( 0,160,650,160); // top floor
-    line( 0,280,650,280); // third floor
-    line( 0,400,650,400); // second floor
-    line( 0,520,650,520); // first floor
-    line( 0,650,650,650); // ground
-    
-   image(ladder, 550, 475); // ladder 1
-   image(ladder, 100, 345); // ladder 2
-   image(ladder, 500, 225); // ladder 3
-   image(ladder, 130, 105); // ladder 4
-   
-   image(food, 600, 125 );
+    stroke(colour);
+    line(startPos.x,startPos.y, endPos.x, endPos.y);
+    image(ball, 600, 125);
+    ball.resize(25,25); 
 
 
-   /*
-   image(ladder, ladder2.x, ladder2.y);
-   image(ladder, ladder3.x, ladder3.y);
-   image(ladder, ladder4.x, ladder4.y);
-   image(ladder, ladder5.x, ladder5.y);
-   image(ladder, ladder6.x, ladder6.y);
-*/
-
-
-
-    
-
-    //line(startPos.x, startPos.y, endPos.x, endPos.y);
   }
+  /*
+  void changePosition(float x1, float y1, float x2, float y2) 
+  {
+    startPos.x = x1;
+    startPos.y = y1;
+    endPos.x = x2;
+    endPos.y = y2;
+  }
+  */
+}
+
+class Ladder extends GameObject
+{
+  
+  PVector startPos;
+
+  Ladder(float x1, float y1) // constructor creating the ladders
+  {
+    this.startPos = new PVector(x1, y1);
+  }
+  
+  void display()
+  {
+        image(ladder , startPos.x, startPos.y);
+
+  }
+  
 }
   
