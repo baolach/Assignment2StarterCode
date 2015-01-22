@@ -5,14 +5,10 @@
     Use translations and rotations
     push and pop matrix
     
-    the Level levelOne = new Level(dfdfsfds) can be different to the co ordinates of the line in the Level tab <<<< None of them seem to matter
-    what does the add.objects in setup on this page do?
-    
-    I cant change the pos.x to the bottom left corner
-    
-    
-    
-    Add in ladder using vectors and not just positions
+
+ 
+ 
+    cassie has to be infront of the ladder and levels
    
 */
 
@@ -27,6 +23,8 @@ int numFrames = 2;  // The number of pictures in the animation
 int currentFrame = 0;
 PImage[] images = new PImage[numFrames];
 PImage[] images2 = new PImage[numFrames];
+PImage[] climb = new PImage[numFrames];
+
 int level = 0;
 
 Level ground = new Level(0,650,650,650); // ground level
@@ -65,7 +63,11 @@ void setup()
   
   images2[0]  = loadImage("walking2left.bmp");
   images2[1]  = loadImage("walking1left.bmp"); 
-  
+   
+   climb[0]  = loadImage("climbing1.bmp"); 
+   climb[1]  = loadImage("climbing2.bmp"); 
+   
+   
   // adds in the objects
   objects.add(ground);
   objects.add(levelOne);

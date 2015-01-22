@@ -52,7 +52,7 @@ class Player extends GameObject // any variables in gameobject are global
   
   void update()
   {
-    /*
+    
     if (checkKey(up))
     {
       //if ( pos.x == ladder1 position)
@@ -61,11 +61,11 @@ class Player extends GameObject // any variables in gameobject are global
     }
     if (checkKey(down))
     {
-      if ( pos.x == ladder1 position)
+      //if ( pos.x == ladder1 position)
 
       pos.y += 2;
     }
-    */
+    
     if (checkKey(left))
     {
       pos.x -= 2;
@@ -90,6 +90,12 @@ class Player extends GameObject // any variables in gameobject are global
   
   void display()
   {    
+     if( (checkKey(left) == false) && (checkKey(right) == false) && (checkKey(up) == false) && (checkKey(down) == false) ) // this makes image disappear if any of the others are showing
+    {
+        
+       image(cassie, pos.x, pos.y);
+    }
+    
     if( checkKey(right))
     {
       currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
@@ -113,10 +119,18 @@ class Player extends GameObject // any variables in gameobject are global
       }
     }
     
-    if( (checkKey(left) == false) && (checkKey(right) == false) )
+   
+    
+    
+    if(checkKey(up) || checkKey(down) )
     {
-        
-       image(cassie, pos.x, pos.y);
+      currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
+      int offset = 0;
+    
+      for (int x = -100; x < width; x += climb[0].width) 
+      { 
+        image(climb[(currentFrame+offset) % numFrames], pos.x, pos.y);   
+      }
     }
 
     
