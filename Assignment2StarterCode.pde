@@ -6,7 +6,9 @@
     push and pop matrix
     
 
- 
+   add a highscore and quickest time
+   OR 
+   have a 3 level thing
  
     cassie has to be infront of the ladder and levels
    
@@ -33,10 +35,10 @@ Level levelTwo = new Level( 0,400,650,400); // second level
 Level levelThree = new Level( 0,280,650,280); // Third level
 Level levelTop = new Level(0,160,650,160); // Top level
 
-Ladder ladder1 = new Ladder(550, 475); // Top level
-Ladder ladder2 = new Ladder(100, 345); // Top level
-Ladder ladder3 = new Ladder(500, 225); // Top level
-Ladder ladder4 = new Ladder(130, 105); // Top level
+Ladder ladder1 = new Ladder(550, 475); // 1st ladder
+Ladder ladder2 = new Ladder(100, 345); // 2nd ladder
+Ladder ladder3 = new Ladder(500, 225); // 3rd ladder
+Ladder ladder4 = new Ladder(130, 105); // 4th ladder
 
 
 
@@ -48,16 +50,13 @@ Ladder ladder4 = new Ladder(130, 105); // Top level
 void setup()
 {
   size(650, 650);
+  frameRate(37);
+
   setUpPlayerControllers();
   ladder = loadImage("ladder.bmp");
   cassie = loadImage("cassie.bmp");
   ball = loadImage("ball.png");
-
-
-
   
-  
-  frameRate(37);
   images[0] = loadImage("walking2.bmp");
   images[1] = loadImage("walking1.bmp"); 
   
@@ -66,8 +65,12 @@ void setup()
    
    climb[0]  = loadImage("climbing1.bmp"); 
    climb[1]  = loadImage("climbing2.bmp"); 
-   
-   
+
+
+
+  
+  
+  
   // adds in the objects
   objects.add(ground);
   objects.add(levelOne);
@@ -79,6 +82,11 @@ void setup()
    objects.add(ladder2);
    objects.add(ladder3);
    objects.add(ladder4);
+  
+  
+   
+   
+
 
 }
 

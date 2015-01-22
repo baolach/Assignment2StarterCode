@@ -28,7 +28,7 @@ class Level extends GameObject
     stroke(colour);
     line(startPos.x,startPos.y, endPos.x, endPos.y);
     image(ball, 600, 125);
-    ball.resize(25,25); 
+    ball.resize(25,25); // makes the image smaller than its orinigal dimensions
 
 
   }
@@ -56,6 +56,7 @@ class Ladder extends GameObject
   void display()
   {
     image(ladder , startPos.x, startPos.y);
+    
   }
   
 }
