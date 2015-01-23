@@ -1,9 +1,9 @@
 <arcade>
 	<player>
-		<up>w</up>
-		<down>s</down>
-		<left>a</left>
-		<right>d</right>
+		<up>UP</up>
+		<down>DOWN</down>
+		<left>LEFT</left>
+		<right>RIGHT</right>
 		<start>q</start>
 		<insertcoin>5</insertcoin>
 		<button1>e</button1>

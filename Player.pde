@@ -79,7 +79,7 @@ class Player extends GameObject // any variables in gameobject are global
     
     if (checkKey(down))
     {
-       if ( (pos.x >525 && pos.x < 555) && (pos.y> 430 && pos.y<550))  // if down is pressed at the ladder1
+       if ( (pos.x >525 && pos.x < 555) && (pos.y> 430 && pos.y<560))  // if down is pressed at the ladder1
       {
         pos.y += 5;
       }
@@ -94,13 +94,11 @@ class Player extends GameObject // any variables in gameobject are global
          pos.y += 5;
       }
       
-     if((pos.x >105 && pos.x <145 ) && (pos.y> 165 && pos.y<190) ) // if down is pressed at level 4
+     if((pos.x >105 && pos.x <145 ) && (pos.y> 65 && pos.y<190) ) // if down is pressed at level 4
      {
         pos.y += 5;
      }
-
-     
-    }
+    } // End check(down) 
     
     
     
@@ -109,22 +107,35 @@ class Player extends GameObject // any variables in gameobject are global
     {
       if (pos.x<0)
       {
-        pos.x = pos.x + (width/ 15); // checks to see if within screen wdith
+        pos.x = pos.x + (width/ 15); // if off to screen to the left it shifts it back
+      }
+      else if ((pos.x >525 && pos.x < 555) && (pos.y> 440 && pos.y<560)) // if on ladder1 , don't move (pos.x >525 && pos.x < 555) && (pos.y> 430 && pos.y<560)
+      {
+      }
+      else if ((pos.x >75 && pos.x <115 ) && (pos.y> 320 && pos.y<430)) // if on ladder2 , don't move
+      {
       }
       else
       {
         pos.x -= 10;
       }
-    }    
+    }
+    
     if (checkKey(right) )
     {
-      if ((pos.x>width -(width/15))) // keep within screen width
+      if ((pos.x>width -(width/15))) // if off to screen to the right it shifts it back
       {
         pos.x = pos.x - (width/ 15);
       }
+      else if ((pos.x >525 && pos.x < 555) && (pos.y> 440 && pos.y<560)) // if on ladder1 , don't move
+      {
+      }
+      else if ((pos.x >75 && pos.x <115 ) && (pos.y> 320 && pos.y<430)) // if on ladder1 , don't move
+      {
+      }
       else
       {
-        pos.x += 10;
+        pos.x += 10; // if off the ladder, you can move
       }
     }
    
@@ -135,7 +146,8 @@ class Player extends GameObject // any variables in gameobject are global
     }
     if (checkKey(button1))
     {
-      println("Player " + index + " button 1");
+       pos.x += 10;
+      //println("Player " + index + " button 1");
     }
     if (checkKey(button2))
     {
@@ -143,6 +155,7 @@ class Player extends GameObject // any variables in gameobject are global
     }    
   }
   
+  // DISPLAY FUNCTION FOR THE PLAYER CLASS
   void display()
   {    
      if( (checkKey(left) == false) && (checkKey(right) == false) && (checkKey(up) == false) && (checkKey(down) == false) ) // this makes image disappear if any of the others are showing

@@ -7,7 +7,7 @@ Constructor methods take the same name as the class.
 class Level extends GameObject
 {
    //levels
-  color colour = #FF003C; // pinky red
+  color colour = #1203FF; // royal blue -  #FF003C << pinky red
   PVector startPos;
   PVector endPos;
 

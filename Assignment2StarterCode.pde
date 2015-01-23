@@ -11,6 +11,10 @@
    have a 3 level thing
  
     cassie has to be infront of the ladder and levels
+    be able to select different dogs/players
+    
+    cant go down  at all on the 4th ladder
+    then on the first ladder when you go down it leaves you too high off the ground
    
 */
 
@@ -57,20 +61,6 @@ void setup()
   cassie = loadImage("cassie.bmp");
   ball = loadImage("ball.png");
   
-  images[0] = loadImage("walking2.bmp");
-  images[1] = loadImage("walking1.bmp"); 
-  
-  images2[0]  = loadImage("walking2left.bmp");
-  images2[1]  = loadImage("walking1left.bmp"); 
-   
-   climb[0]  = loadImage("climbing1.bmp"); 
-   climb[1]  = loadImage("climbing2.bmp"); 
-
-
-
-  
-  
-  
   // adds in the objects
   objects.add(ground);
   objects.add(levelOne);
@@ -82,7 +72,15 @@ void setup()
    objects.add(ladder2);
    objects.add(ladder3);
    objects.add(ladder4);
+   images[0] = loadImage("walking2.bmp");
+  images[1] = loadImage("walking1.bmp"); 
   
+  images2[0]  = loadImage("walking2left.bmp");
+  images2[1]  = loadImage("walking1left.bmp"); 
+   
+   climb[0]  = loadImage("climbing1.bmp"); 
+   climb[1]  = loadImage("climbing2.bmp"); 
+
   
    
    
@@ -166,7 +164,7 @@ void setUpPlayerControllers()
             , playerXML);
           int x = (i + 1) * gap;
           p.pos.x = width / 15; // position of cassie
-          p.pos.y = height - (height / 7);
+          p.pos.y = (height - (height / 7)) +5;
          objects.add(p);         
   }
 }
