@@ -12,9 +12,10 @@
  
     cassie has to be infront of the ladder and levels
     be able to select different dogs/players
+    add in a barking sound when she gets hit
+ 
     
-    cant go down  at all on the 4th ladder
-    then on the first ladder when you go down it leaves you too high off the ground
+    what can gameObject class do?
    
 */
 
@@ -33,6 +34,12 @@ PImage[] climb = new PImage[numFrames];
 
 int level = 0;
 
+import ddf.minim.*;
+Minim minim;
+AudioPlayer bark;
+
+
+
 Level ground = new Level(0,650,650,650); // ground level
 Level levelOne = new Level( 0,520,650,520); // first level
 Level levelTwo = new Level( 0,400,650,400); // second level
@@ -43,6 +50,9 @@ Ladder ladder1 = new Ladder(550, 475); // 1st ladder
 Ladder ladder2 = new Ladder(100, 345); // 2nd ladder
 Ladder ladder3 = new Ladder(500, 225); // 3rd ladder
 Ladder ladder4 = new Ladder(130, 105); // 4th ladder
+
+//Green green1 = new Green(100,100); // 1st green bone
+
 
 
 
@@ -57,10 +67,10 @@ void setup()
   frameRate(37);
 
   setUpPlayerControllers();
-  ladder = loadImage("ladder.bmp");
-  cassie = loadImage("cassie.bmp");
+  ladder = loadImage("ladder.png");
+  cassie = loadImage("cassie.png");
   ball = loadImage("ball.png");
-  
+   
   // adds in the objects
   objects.add(ground);
   objects.add(levelOne);
@@ -72,14 +82,22 @@ void setup()
    objects.add(ladder2);
    objects.add(ladder3);
    objects.add(ladder4);
-   images[0] = loadImage("walking2.bmp");
-  images[1] = loadImage("walking1.bmp"); 
-  
-  images2[0]  = loadImage("walking2left.bmp");
-  images2[1]  = loadImage("walking1left.bmp"); 
    
-   climb[0]  = loadImage("climbing1.bmp"); 
-   climb[1]  = loadImage("climbing2.bmp"); 
+  //objects.add(green1);
+ 
+ // minim = new minum(this);
+  //bark = minim.loadFile("bark.mp3"); 
+
+
+  
+  images[0] = loadImage("walking2.png");
+  images[1] = loadImage("walking1.png"); 
+  
+  images2[0]  = loadImage("walking2left.png");
+  images2[1]  = loadImage("walking1left.png"); 
+   
+   climb[0]  = loadImage("climbing1.png"); 
+   climb[1]  = loadImage("climbing2.png"); 
 
   
    

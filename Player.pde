@@ -1,3 +1,5 @@
+
+
 class Player extends GameObject // any variables in gameobject are global
 {
   PVector pos;
@@ -11,10 +13,7 @@ class Player extends GameObject // any variables in gameobject are global
   int index;
   color colour;
 
-  
-
-
-    
+ 
   Player()
   {
     pos = new PVector(width / 15,  height - (height / 7)); 
@@ -115,9 +114,15 @@ class Player extends GameObject // any variables in gameobject are global
       else if ((pos.x >75 && pos.x <115 ) && (pos.y> 320 && pos.y<430)) // if on ladder2 , don't move
       {
       }
+      else if ((pos.x >475 && pos.x <515 ) && (pos.y> 195 && pos.y<310) ) // if on ladder3 , don't move
+      {
+      }
+      else if ((pos.x >105 && pos.x <145 ) && (pos.y> 75 && pos.y<190) ) // if on ladder4 , don't move
+      {
+      }
       else
       {
-        pos.x -= 10;
+        pos.x -= 5;
       }
     }
     
@@ -130,12 +135,18 @@ class Player extends GameObject // any variables in gameobject are global
       else if ((pos.x >525 && pos.x < 555) && (pos.y> 440 && pos.y<560)) // if on ladder1 , don't move
       {
       }
-      else if ((pos.x >75 && pos.x <115 ) && (pos.y> 320 && pos.y<430)) // if on ladder1 , don't move
+      else if ((pos.x >75 && pos.x <115 ) && (pos.y> 320 && pos.y<430)) // if on ladder2 , don't move
+      {
+      }
+      else if ((pos.x >475 && pos.x <515 ) && (pos.y> 195 && pos.y<310) ) // if on ladder3 , don't move
+      {
+      }
+      else if ((pos.x >105 && pos.x <145 ) && (pos.y> 75 && pos.y<190) ) // if on ladder4 , don't move
       {
       }
       else
       {
-        pos.x += 10; // if off the ladder, you can move
+        pos.x += 5; // if off the ladder, you can move
       }
     }
    
@@ -144,17 +155,24 @@ class Player extends GameObject // any variables in gameobject are global
     {
       println("Player " + index + " start");
     }
-    if (checkKey(button1))
+    
+    
+    if (checkKey(button1)) // dont ned to jump
     {
-       pos.x += 10;
+      //pos.y += 1;
       //println("Player " + index + " button 1");
     }
-    if (checkKey(button2))
+
+    if (checkKey(button2)) // button 2 is 'r'
     {
-      println("Player " + index + " butt2");
-    }    
-  }
-  
+      //bark.play();
+
+    }
+} // end update()
+        
+
+
+
   // DISPLAY FUNCTION FOR THE PLAYER CLASS
   void display()
   {    
