@@ -24,6 +24,12 @@ boolean[] keys = new boolean[526];
 PImage cassie;
 PImage ladder;
 PImage ball;
+PImage bone;
+PImage start;
+PImage instructions;
+PImage sleep;
+int level = 0;
+
 
 
 int numFrames = 2;  // The number of pictures in the animation
@@ -32,7 +38,17 @@ PImage[] images = new PImage[numFrames];
 PImage[] images2 = new PImage[numFrames];
 PImage[] climb = new PImage[numFrames];
 
-int level = 0;
+int num = 1; // how many on the screen at once
+int[] Xfall = new int[num]; // x position of things falling
+int[] Yfall = new int[num]; // y position of things falling
+float speed = 1;
+int lives = 3;
+int score = 0;
+int i;
+
+
+int f = 600;
+
 
 import ddf.minim.*;
 Minim minim;
@@ -54,13 +70,6 @@ Ladder ladder4 = new Ladder(130, 105); // 4th ladder
 //Green green1 = new Green(100,100); // 1st green bone
 
 
-
-
-
-
-
-
-
 void setup()
 {
   size(650, 650);
@@ -70,6 +79,11 @@ void setup()
   ladder = loadImage("ladder.png");
   cassie = loadImage("cassie.png");
   ball = loadImage("ball.png");
+  bone = loadImage("bone.png");
+  start = loadImage("start.jpg");
+  instructions = loadImage("blur.jpg");
+  sleep = loadImage("sleep.png");
+
    
   // adds in the objects
   objects.add(ground);
@@ -85,8 +99,8 @@ void setup()
    
   //objects.add(green1);
  
- // minim = new minum(this);
-  //bark = minim.loadFile("bark.mp3"); 
+  minim = new Minim(this);
+
 
 
   
@@ -98,11 +112,6 @@ void setup()
    
    climb[0]  = loadImage("climbing1.png"); 
    climb[1]  = loadImage("climbing2.png"); 
-
-  
-   
-   
-
 
 }
 
@@ -118,14 +127,21 @@ void draw()
       case 1:
         levelOne.chane
       } */
+ 
+  
 
   
-  for(GameObject object: objects)
-  {
-    object.update();
-    object.display();
-  }
-}
+    for(GameObject object: objects)
+    {
+      object.update();
+      object.display();
+      fall();
+      
+    }
+  
+  
+ 
+}// end draw
 
 
 
@@ -163,6 +179,7 @@ char buttonNameToKey(XML xml, String buttonName)
   {
     return DOWN;
   }
+ 
   //.. Others to follow
   return value.charAt(0);  
 }

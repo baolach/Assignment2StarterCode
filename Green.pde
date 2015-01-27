@@ -1,49 +1,32 @@
-/*
 
-
-int num = 2; // how many on the screen at once
-int[] Xfall = new int[num]; // x position of things falling
-int[] Yfall = new int[num]; // y position of things falling
-int speed = 9;
-int lives = 3;
-int i;
-
-
-PVector startPos;
-PVector endPos;
-
-
-cGreen extends GameObject
+void fall()
 {
-  
-  
-  Green(float x1, float y1) // constructor creating the co ordinates for x and y coordinates for each item
-  {
-    this.greenPos = new PVector(x1, y1);
-  }
-  
 
-
-
-
-  void update()
-  {
-  }
-
-
-  void display()
-  {
+  for( int i = 0; i < num; i++) 
+    {
+      if( lives == 0)
+       {
+         Yfall[i] = 100;
+       }
+      
+      image(bone, Xfall[i], Yfall[i]); // bones falling
+ 
+    }
     
-    strokeWeight(25);
-    stroke(255); // white
-    rect(greenPos.x,greenPos.y); // shows Green bone and then it moves down the screen
+     for( int i = 0; i< num; i++) // makes boxes move and reposition at the top at a cert
+     {
+        Yfall[i] = Yfall[i] + (int) speed;
+        if (Yfall[i] > height)
+        {
+          Yfall[i] = (int)random(-100);
+          Xfall[i] = (int)random( width -50);
+        }
+     }
+}
 
 
-  }
-} // end Green class
 
-
-/////////////////////////////////////////////////////////
+/*
 class Green extends GameObject
 {
   
@@ -58,10 +41,15 @@ class Green extends GameObject
   {
     strokeWeight(25);
     stroke(255); // white
-    rect(greenPos.x,greenPos.y); // shows Green bone and then it moves down the screen
+    rect(Xgreen[i],greenPos.y); // shows Green bone and then it moves down the screen
     
   }
   
 }
- 
- */  
+
+*/
+
+
+
+     
+
