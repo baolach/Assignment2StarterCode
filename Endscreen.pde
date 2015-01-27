@@ -1,14 +1,8 @@
-/*void endscreen()
+void endscreen()
 {
  
-   
- 
-   lives = 3; // resets
- 
-  
    float f = 650;
- 
-  
+
   int dblue = 100; // dark blue
   int rblue = 200; // royal blue
   int lblue = #A7CAFF; // light blue= 3;
@@ -29,15 +23,19 @@
   float botX = f/4 ;
   float botY = (f/4)*3.2;
   
-  if(lives == 0)
-    {
-      image(sleep, 100,100);
-    }
-  
-  
+   
 
     start.resize( width, height);
     image(start, 0, 0);
+    
+  fill(255,0,0); // red
+  textSize(35);
+  
+  text( "Final Score: " +time, 210, 180); 
+  
+  
+ 
+  
 
     
     // top box
@@ -47,7 +45,7 @@
     rect( topX1, topY1, boxWidth, boxHeight);
     fill(225);
     textSize(f/15);
-    text( "ENDSCREEN", topX1+textposX , topY1+ textposY);
+    text( "Press T to exit", topX1+textposX , topY1+ textposY);
     
     //middle box
     stroke(0,0, dblue);
@@ -55,8 +53,24 @@
     fill( 0,0,rblue); // light blue
     rect( midX1, midY1+boxgap, boxWidth, boxHeight);
     fill(225);
-    textSize(f/22);
-    text( "ENDSCREEN", midX1+textposX2, midY1+ textposY2);
+    textSize(f/28);
+    text( "Press R to return to Home\n Screen or Q to Play again", (midX1+textposX2)+15, (midY1+ textposY2)-50);
+    
+
+    
+     currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
+     int offset = 0; // which frame
+    
+      for (int x = -100; x < width; x += images[0].width) 
+      { 
+        frameRate(1);
+        sleeping[0].resize(200,150);
+        sleeping[1].resize(200,150);
+        image(sleeping[(currentFrame+offset) % numFrames], 235, 480);
+        
+      }
+   
+
   
     /*
     if((STARTSCREEN == true) && mouseX > topX1 && mouseX<topX1 +boxWidth && mouseY>topY1 && mouseY<topY1+boxHeight) // top box
@@ -76,9 +90,10 @@
       textSize(f/22);
       text( "Press E for Instructions", midX1+textposX2, midY1+ textposY2);
     }
+    */
+    
   
 }  
 
- 
 
-*/
+

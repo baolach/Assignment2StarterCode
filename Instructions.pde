@@ -1,7 +1,7 @@
 void instructions()
 {
   //sets all booleans 
-
+  
   
  float var1= f/ 12;
  float rectX= f/10;
@@ -9,6 +9,8 @@ void instructions()
  float textX = f/7;
  float textY = f/ 4;
  float gapY = f/16;
+ 
+ 
   
     instructions = loadImage("blur.jpg");
     instructions.resize(width, height);

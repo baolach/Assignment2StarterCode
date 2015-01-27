@@ -2,21 +2,19 @@
     DIT OOP Assignment 2 Starter Code
     =================================
     
-    Use translations and rotations
-    push and pop matrix
-    
-
-   add a highscore and quickest time
-   OR 
-   have a 3 level thing
  
-    cassie has to be infront of the ladder and levels
-    be able to select different dogs/players
-    add in a barking sound when she gets hit
+    timer doesnt reset
+    instructions still doesnt work after the start menu
  
-    
-    what can gameObject class do?
+        
+    comment!!!
+   have cat throwstuff
    
+   have option for different colours
+   fix cassie walking
+   cassie infront of laddesr
+   score  reset
+   when you reach the ball have a celebration
 */
 
 ArrayList<GameObject> objects = new ArrayList<GameObject>(); // an array list of objects . ie. a number of objects that can be reference by object.get(i)
@@ -26,6 +24,7 @@ PImage ladder;
 PImage ball;
 PImage bone;
 PImage start;
+PImage instructs;
 PImage instructions;
 PImage sleep;
 int level = 0;
@@ -37,17 +36,21 @@ int currentFrame = 0;
 PImage[] images = new PImage[numFrames];
 PImage[] images2 = new PImage[numFrames];
 PImage[] climb = new PImage[numFrames];
+PImage[] sleeping = new PImage[numFrames];
+
 
 int num = 1; // how many on the screen at once
 int[] Xfall = new int[num]; // x position of things falling
 int[] Yfall = new int[num]; // y position of things falling
 float speed = 1;
-int lives = 3;
-int score = 0;
+int lives = 1;
 int i;
+int f = 650;
+int time;
 
+boolean startscreen = true;
+boolean instructions_bool = false;
 
-int f = 600;
 
 
 import ddf.minim.*;
@@ -81,6 +84,7 @@ void setup()
   ball = loadImage("ball.png");
   bone = loadImage("bone.png");
   start = loadImage("start.jpg");
+  instructs = loadImage("instructs.png");
   instructions = loadImage("blur.jpg");
   sleep = loadImage("sleep.png");
 
@@ -112,25 +116,22 @@ void setup()
    
    climb[0]  = loadImage("climbing1.png"); 
    climb[1]  = loadImage("climbing2.png"); 
+   
+   sleeping[0]  = loadImage("sleep.png"); 
+   sleeping[1]  = loadImage("sleep2.png"); 
 
 }
 
 void draw()
 {
     background(10);
-    /*
-    switch (level){
-      case 0:
-        levelOne.changePosition(30, 40. 40, 50);
-        break;
-       
-      case 1:
-        levelOne.chane
-      } */
- 
   
-
-  
+  if( startscreen == true)
+  {
+    startscreen();
+  }
+  else if( startscreen == false && instructions_bool == false && lives != 0)
+  {
     for(GameObject object: objects)
     {
       object.update();
@@ -138,7 +139,20 @@ void draw()
       fall();
       
     }
+  }
+  else if( lives == 0 || lives < 0)
+  {
+    endscreen();
+    time = 0;
+  }
+  else if(instructions_bool = true)
+  {
+    instructions();
+  }
   
+  
+  
+ 
   
  
 }// end draw
@@ -148,6 +162,29 @@ void draw()
 void keyPressed()
 {
   keys[keyCode] = true;
+  
+   if( (key == 't') || (key == 'T'))
+   {
+     exit();
+   }
+   if( (key == 'e') || (key == 'E'))
+   {
+     startscreen = false;
+     instructions_bool = true;
+   }
+   if( (key == 'q') || (key == 'Q'))
+   {
+     startscreen = false;
+     instructions_bool = false;
+     frameRate(37); //sets framerate back to 37 as on the endscreen the speed is slowed down to 1
+     lives = 3;
+     time = 0;
+   }
+   if( (key == 'r') || (key == 'R'))
+   {
+     startscreen = true;
+     time = 0;
+   }
 }
 
 void keyReleased()

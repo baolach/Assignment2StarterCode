@@ -32,15 +32,30 @@ class Level extends GameObject
 
 
   }
-  /*
-  void changePosition(float x1, float y1, float x2, float y2) 
+  
+  void update()
   {
-    startPos.x = x1;
-    startPos.y = y1;
-    endPos.x = x2;
-    endPos.y = y2;
+   if( lives != 0 || lives <0)
+   {
+     textSize(35);
+     fill(0, 0, 150);
+     text("Lives:" +lives, 10, 45);
+     
+     time= frameCount;
+   
+     textSize(35);
+     fill(0, 0, 150);
+     text("Time:" +time, 150, 45);
+     
+   }
+   else
+   {
+     //endscreen();
+   }
   }
-  */
+  
+
+ 
 }
 
 class Ladder extends GameObject

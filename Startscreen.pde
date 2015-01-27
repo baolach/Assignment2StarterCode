@@ -1,9 +1,10 @@
+
 void startscreen()
 {
   
    
  
-   lives = 3; // resets
+
  
   
    float f = 650;
@@ -30,9 +31,12 @@ void startscreen()
   float botY = (f/4)*3.2;
   
   
+  
 
     start.resize( width, height);
     image(start, 0, 0);
+    
+    image(instructs, 50 , 30);
 
     
     // top box
@@ -71,8 +75,7 @@ void startscreen()
       textSize(f/22);
       text( "Press E for Instructions", midX1+textposX2, midY1+ textposY2);
     }
-  
     */
-
- 
 }
+
+

@@ -50,42 +50,7 @@ class Player extends GameObject // any variables in gameobject are global
   
   void update()
   {
-   if( lives != 0 || lives <0)
-   {
-     textSize(35);
-     fill(0, 0, 150);
-     text("Lives:" +lives, 10, 45);
-     
-     int time= frameCount;
-     
-     
-     textSize(35);
-     fill(0, 0, 150);
-     text("Time:" +time, 150, 45);
-   }
-   
-   
-   
-   /////////////////////////////////////////////////////////////////////
-  if (checkKey(start)) //  'q' = play
-    {
-      
-      
-    }
-    
-    
-    if (checkKey(button1)) // 'e' = instructions
-    {
-    
-      
-    }
-
-    if (checkKey(button2)) // 'r' = startscreen
-    {
-
-    }
-/////////////////////////////////////////////////////////////////////////////   
-   
+ 
     if (checkKey(up))
     {
       if ( (pos.x >525 && pos.x < 555) && (pos.y> 440))  // if up is pressed at the ladder1
@@ -204,12 +169,14 @@ class Player extends GameObject // any variables in gameobject are global
       
      if( lives == 0) // goes to endscreen()
       {
-        pos.y = 100;
+        pos.x = width / 15;
+        pos.y = height - (height / 7);
+         
       }
-      
-      if( lives < 0) // just to double check
+      else if( lives < 0) // just to double check
       {
-        pos.y = 100;
+        pos.x = width / 15;
+        pos.y = height - (height / 7) + 5;
       }
     } // end if
   } // end for hit detection
