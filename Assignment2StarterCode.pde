@@ -13,12 +13,7 @@
     
     
     
- 
-    comment!!!
-   fix cassie walking
    cassie infront of laddesr
-   have option for different colours
-    Maybe change the startscreen so the instructions look better
     
 */
 
@@ -28,7 +23,6 @@ PImage cassie;
 PImage ladder;
 PImage ball;
 PImage cat;
-PImage start;
 PImage instructs;
 PImage instructions;
 PImage sleep;
@@ -84,16 +78,7 @@ void setup()
   frameRate(37);
   
   setUpPlayerControllers();
-  ladder = loadImage("ladder.png");
-  cassie = loadImage("cassie.png");
-  ball = loadImage("ball.png");
-  cat = loadImage("cat.png");
-  start = loadImage("start.jpg");
-  instructs = loadImage("instructs.png");
-  sleep = loadImage("sleep.png");
-  title = loadImage("image.png");
-
-   
+  
   // adds in the objects
   objects.add(ground);
   objects.add(levelOne);
@@ -108,8 +93,19 @@ void setup()
    
  
   minim = new Minim(this);
-  bkg = minim.loadFile("EyeoftheTiger.mp3");
-  //bkg.play();
+  bkg = minim.loadFile("POL-floating-town-short.wav");//("EyeoftheTiger.mp3");
+  bkg.play();
+  bkg.loop();
+  
+  ladder = loadImage("ladder.png");
+  cassie = loadImage("cassie.png");
+  ball = loadImage("ball.png");
+  cat = loadImage("cat.png");
+  instructs = loadImage("instructs.png");
+  sleep = loadImage("sleep.png");
+  title = loadImage("image.png");
+
+   
   
   
 

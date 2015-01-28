@@ -28,10 +28,12 @@ void endscreen()
    background(10);
    image(title, 50,100);
 
-    
-  fill(255,0,0); // red
-  textSize(35);
-  text( "Final Score: " +time, 210, 180); 
+ 
+    fill(255,0,0); // red
+    textSize(35);
+    text( "Final Score: " +time, 210, 180);
+ 
+
 
     
     // top box
