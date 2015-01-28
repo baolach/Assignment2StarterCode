@@ -1,4 +1,7 @@
 /*
+In this class the blue levels are drawn using PVectors for their positions
+Also the time and lives are displayed on the level at the top for the player to see
+
 When the object is created, Java calls the constructor first. Any code you have in your constructor will then get executed. 
 You don't need to make any special calls to a constructor method - they happen automatically when you create a new object. 
 Constructor methods take the same name as the class.
@@ -7,7 +10,7 @@ Constructor methods take the same name as the class.
 class Level extends GameObject
 {
    //levels
-  color colour = #1203FF; // royal blue -  #FF003C << pinky red
+  color colour = #1203FF; // blue
   PVector startPos;
   PVector endPos;
 
@@ -48,10 +51,7 @@ class Level extends GameObject
      text("Time:" +time, 150, 45);
      
    }
-   else
-   {
-     //endscreen();
-   }
+  
   }
   
 

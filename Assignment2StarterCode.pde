@@ -2,8 +2,18 @@
     DIT OOP Assignment 2 Starter Code
     =================================
     
+    Author: Baolach Morrison
+    Student No: C13367911
+    
+    In this game you use the arrow to move nad climb up ladders to reach Cassie's (my dog) favourite toy
+    You must avoid the evil cats which fall from the sky
+    You must be at the very top or very bottom of a ladder in order to move left or right off it
+    You have 3 lives. If you get hit 3 times Cassie gets worn out and must have a nap
+    Your time inscreases as the game goes on so you must complete in the lowest amount of time while not getting hit by the evil cats
+    
+    
+    
  
-    timer doesnt reset
     comment!!!
    fix cassie walking
    cassie infront of laddesr
@@ -12,12 +22,12 @@
     
 */
 
-ArrayList<GameObject> objects = new ArrayList<GameObject>(); // an array list of objects . ie. a number of objects that can be reference by object.get(i)
+ArrayList<GameObject> objects = new ArrayList<GameObject>(); // an array list of objects 
 boolean[] keys = new boolean[526];
 PImage cassie;
 PImage ladder;
 PImage ball;
-PImage bone;
+PImage cat;
 PImage start;
 PImage instructs;
 PImage instructions;
@@ -51,8 +61,10 @@ Minim minim;
 AudioPlayer bark;
 AudioPlayer cheer;
 AudioPlayer bkg;
+AudioPlayer meow;
 
 
+// gives objects their coordinates
 Level ground = new Level(0,650,650,650); // ground level
 Level levelOne = new Level( 0,520,650,520); // first level
 Level levelTwo = new Level( 0,400,650,400); // second level
@@ -71,13 +83,11 @@ void setup()
   size(650, 650);
   frameRate(37);
   
-  
-   
   setUpPlayerControllers();
   ladder = loadImage("ladder.png");
   cassie = loadImage("cassie.png");
   ball = loadImage("ball.png");
-  bone = loadImage("bone.png");
+  cat = loadImage("cat.png");
   start = loadImage("start.jpg");
   instructs = loadImage("instructs.png");
   sleep = loadImage("sleep.png");
@@ -99,7 +109,7 @@ void setup()
  
   minim = new Minim(this);
   bkg = minim.loadFile("EyeoftheTiger.mp3");
-  bkg.play();
+  //bkg.play();
   
   
 
@@ -133,15 +143,14 @@ void draw()
       object.update();
       object.display();
       fall();
-      
+     
     }
   }
   else if( lives == 0 || lives < 0)
   {
     endscreen();
-    time = 0;
   }
-  
+
 }// end draw
 
 
@@ -159,13 +168,13 @@ void keyPressed()
    {
      startscreen = false;
      frameRate(37); //sets framerate back to 37 as on the endscreen the speed is slowed down to 1
-     lives = 1;
-     time = 0;
+     frameCount = 0;
+     lives = 3;
    }
+   
    if( (key == 'r') || (key == 'R'))
    {
      startscreen = true;
-     time = 0;
    }
 }
 
@@ -219,8 +228,8 @@ void setUpPlayerControllers()
             , color(255,0,0)
             , playerXML);
           int x = (i + 1) * gap;
-          p.pos.x = 500;// width / 15; // position of cassie
-          p.pos.y = 70;//(height - (height / 7)) +5;
+          p.pos.x = width / 15; // position of cassie
+          p.pos.y = (height - (height / 7)) +5;
          objects.add(p);         
   }
 }

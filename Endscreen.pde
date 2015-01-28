@@ -1,13 +1,20 @@
+/*
+This function is called if lives = 0. The boxes are drawn and you can either return to the main menu or play again straight away
+There is an animation of Cassie sleeping which I think is pretty cool. An array of images and a forloop is used to do this
+Your time is also posted at the top
+*/
+
+
 void endscreen()
 {
  
+   // positions of boxes  and text
   float f = 650;
   float textposX = (f/10)/6 ; 
   float textposY = f/8;
   float textposX2 =(f/10)/6;
   float textposY2 = f/5;
   
-  // positions of boxes for start and end screen
   float boxgap = f/16;
   float topX1 = f/4 ;
   float topY1 = f/3 ;
@@ -24,7 +31,6 @@ void endscreen()
     
   fill(255,0,0); // red
   textSize(35);
-  
   text( "Final Score: " +time, 210, 180); 
 
     
@@ -47,7 +53,7 @@ void endscreen()
     text( "Press R to return to Home\n Screen or Q to Play again", (midX1+textposX2)+15, (midY1+ textposY2)-50);
     
 
-    
+    // Animation of Cassie sleeping
      currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
      int offset = 0; // which frame
     

@@ -1,3 +1,7 @@
+/*
+This function controls the cats that fall. A simple array list is used
+Once the cats hit the bottom the respawn at a random X and Y position at the top and come down again
+*/
 
 void fall()
 {
@@ -9,7 +13,7 @@ void fall()
          Yfall[i] = 100;
        }
       
-      image(bone, Xfall[i], Yfall[i]); // bones falling
+      image(cat, Xfall[i], Yfall[i]); // cats falling
  
     }
     
@@ -23,31 +27,6 @@ void fall()
         }
      }
 }
-
-
-
-/*
-class Green extends GameObject
-{
-  
-  PVector greenPos;
-
-  Green(float x1, float y1) // constructor creating the ladder coordintates for each ladder object
-  {
-    this.greenPos = new PVector(x1, y1);
-  }
-  
-  void display()
-  {
-    strokeWeight(25);
-    stroke(255); // white
-    rect(Xgreen[i],greenPos.y); // shows Green bone and then it moves down the screen
-    
-  }
-  
-}
-
-*/
 
 
 

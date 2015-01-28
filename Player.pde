@@ -1,4 +1,10 @@
+/*
+  The player is created and placed at the bottom left
+  The movement of the player (Cassie) is updated here so that the player moves. It does this by simply checking if a button is being pressed or released
+  The images are also shown here so when the right button is pressed, Cassie walks right etc. THis acceses the array or images and gives the effect of an animation
+  The hit detection is shown here also which measures the distance between the player and the cat/ favourite toy and acts accordingly
 
+*/
 
 class Player extends GameObject // any variables in gameobject are global
 {
@@ -16,7 +22,7 @@ class Player extends GameObject // any variables in gameobject are global
  
   Player()
   {
-    pos = new PVector(width / 15,  height - (height / 7)); 
+    pos = new PVector(width / 15,  height - (height / 7)); // creates coordinates
   }
   
   Player(int index, color colour, char up, char down, char left, char right, char start, char button1, char button2)
@@ -50,7 +56,7 @@ class Player extends GameObject // any variables in gameobject are global
   
   void update()
   {
- 
+     // checks buttons and adds/ subtratcs from player position
     if (checkKey(up))
     {
       if ( (pos.x >525 && pos.x < 555) && (pos.y> 440))  // if up is pressed at the ladder1
@@ -161,9 +167,12 @@ class Player extends GameObject // any variables in gameobject are global
       Xfall[i] = (int)random(0, 550);
       Yfall[i] = 0;
       
-      bark = minim.loadFile("bark.mp3"); 
+      bark = minim.loadFile("dog_barking_10.mp3"); 
       bark.play();
-
+      
+      meow = minim.loadFile("cat_meow_human_voice_3.mp3"); 
+      meow.play();
+      
       lives = lives - 1;
       
       
@@ -180,7 +189,7 @@ class Player extends GameObject // any variables in gameobject are global
       }
     } // end if
     
-    if( dist( pos.x + speed, pos.y, 600, 115) <= 62)
+    if( dist( pos.x + speed, pos.y, 600, 115) <= 62) // her favourite toy
     {
       cheer = minim.loadFile("cheer.mp3"); 
       cheer.play();
@@ -188,11 +197,7 @@ class Player extends GameObject // any variables in gameobject are global
       pos.x = width / 15; // position of cassie
       pos.y = (height - (height / 7)) +5;
     
-   
-      
     }
-
-        
 
   } // end for hit detection
   
@@ -235,9 +240,7 @@ class Player extends GameObject // any variables in gameobject are global
       }
     }
     
-   
-    
-    
+ 
     if(checkKey(up) || checkKey(down) )
     {
       currentFrame = (currentFrame+1) % numFrames;  // Use % to cycle through frames
@@ -249,13 +252,8 @@ class Player extends GameObject // any variables in gameobject are global
       }
     }
 
-
-    
-  
   } // end display()  
-  
-  
-  
+
 }
 
 

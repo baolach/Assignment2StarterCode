@@ -1,14 +1,15 @@
+/*
+This function simply displays the startscreen which also shows the instructions
+
+*/
+ 
  int dblue = color(9,3,225); // dark blue
  int rblue = color(0,215,255); // turquoise
   
 void startscreen()
 {
 
-   float f = 650;
- 
-  
- 
- 
+  float f = 650;
   float textposX = (f/10)/6 ; 
   float textposY = f/8;
   float textposX2 =(f/10)/6;
@@ -25,9 +26,6 @@ void startscreen()
   float botX = f/4 ;
   float botY = (f/4)*3.2;
   
-  
-
-
     background(10);
     
     image(title, 50,100);
@@ -53,8 +51,6 @@ void startscreen()
     
     image(instructs, 80 , 400); // shows the instructions
 
-    
-  
 }
 
 
