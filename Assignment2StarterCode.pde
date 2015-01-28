@@ -5,16 +5,12 @@
     Author: Baolach Morrison
     Student No: C13367911
     
-    In this game you use the arrow to move nad climb up ladders to reach Cassie's (my dog) favourite toy
+    In this game you use the arrow to move nad climb up ladders to reach Cassie's (my dog who is a Rough Collie) favourite toy
     You must avoid the evil cats which fall from the sky
     You must be at the very top or very bottom of a ladder in order to move left or right off it
     You have 3 lives. If you get hit 3 times Cassie gets worn out and must have a nap
     Your time inscreases as the game goes on so you must complete in the lowest amount of time while not getting hit by the evil cats
-    
-    
-    
-   cassie infront of laddesr
-    
+        
 */
 
 ArrayList<GameObject> objects = new ArrayList<GameObject>(); // an array list of objects 
@@ -105,9 +101,6 @@ void setup()
   sleep = loadImage("sleep.png");
   title = loadImage("image.png");
 
-   
-  
-  
 
   images[0] = loadImage("walking2.png");
   images[1] = loadImage("walking1.png"); 

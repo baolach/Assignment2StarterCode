@@ -205,9 +205,7 @@ class Player extends GameObject // any variables in gameobject are global
   
 } // end update()
         
-
-
-
+  
   // DISPLAY FUNCTION FOR THE PLAYER CLASS
   void display()
   {    
@@ -252,8 +250,7 @@ class Player extends GameObject // any variables in gameobject are global
       }
     }
 
-  } // end display()  
-
-}
+  } // end display()
+} // end class
 
 

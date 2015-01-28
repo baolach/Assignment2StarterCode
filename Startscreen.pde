@@ -51,6 +51,6 @@ void startscreen()
     
     image(instructs, 80 , 400); // shows the instructions
 
-}
+} // end startscreen
 
 
