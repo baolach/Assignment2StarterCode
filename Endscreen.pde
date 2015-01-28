@@ -1,12 +1,7 @@
 void endscreen()
 {
  
-   float f = 650;
-
-  int dblue = 100; // dark blue
-  int rblue = 200; // royal blue
-  int lblue = #A7CAFF; // light blue= 3;
- 
+  float f = 650;
   float textposX = (f/10)/6 ; 
   float textposY = f/8;
   float textposX2 =(f/10)/6;
@@ -23,36 +18,31 @@ void endscreen()
   float botX = f/4 ;
   float botY = (f/4)*3.2;
   
-   
+   background(10);
+   image(title, 50,100);
 
-    start.resize( width, height);
-    image(start, 0, 0);
     
   fill(255,0,0); // red
   textSize(35);
   
   text( "Final Score: " +time, 210, 180); 
-  
-  
- 
-  
 
     
     // top box
-    stroke(0,0, dblue); 
+    stroke(dblue); 
     strokeWeight( 5);
-    fill( 0,0,rblue); // light blue
+    fill( rblue); // light blue
     rect( topX1, topY1, boxWidth, boxHeight);
-    fill(225);
+    fill(dblue);
     textSize(f/15);
     text( "Press T to exit", topX1+textposX , topY1+ textposY);
     
     //middle box
-    stroke(0,0, dblue);
+    stroke(dblue);
     strokeWeight( 5);
-    fill( 0,0,rblue); // light blue
+    fill( rblue); // light blue
     rect( midX1, midY1+boxgap, boxWidth, boxHeight);
-    fill(225);
+    fill(dblue);
     textSize(f/28);
     text( "Press R to return to Home\n Screen or Q to Play again", (midX1+textposX2)+15, (midY1+ textposY2)-50);
     
@@ -70,30 +60,24 @@ void endscreen()
         
       }
    
-
-  
-    /*
-    if((STARTSCREEN == true) && mouseX > topX1 && mouseX<topX1 +boxWidth && mouseY>topY1 && mouseY<topY1+boxHeight) // top box
+    if((lives  == 0) && mouseX > topX1 && mouseX<topX1 +boxWidth && mouseY>topY1 && mouseY<topY1+boxHeight) // top box
     {
-      fill(lblue); 
+      fill(dblue); 
       rect( topX1, topY1, boxWidth, boxHeight);
-      fill(100);
-      textSize(f/15);
-      text( "Press Q to Start", topX1+textposX , topY1+ textposY);
+      fill(rblue);
+      textSize(f/17);
+      text( "Press T to exit", topX1+textposX+25, topY1+ textposY);
     }
   
-    if((STARTSCREEN == true) && mouseX > midX1 && mouseX<midX1+boxWidth && mouseY>midY1+boxgap && mouseY<midY1+boxHeight+boxgap)
+   
+    if((lives == 0) && mouseX > midX1 && mouseX<midX1+boxWidth && mouseY>midY1+boxgap && mouseY<midY1+boxHeight+boxgap)
     {
-      fill(lblue); 
+      fill(dblue); 
       rect( midX1, midY1+boxgap, boxWidth, boxHeight);
-      fill(100);
-      textSize(f/22);
-      text( "Press E for Instructions", midX1+textposX2, midY1+ textposY2);
+      fill(rblue);
+      textSize(f/28);
+      text( "Press R to return to Home\n Screen or Q to Play again", midX1+textposX2 + 15, midY1+ textposY2 - 50);
     }
-    */
     
-  
+ 
 }  
-
-
-

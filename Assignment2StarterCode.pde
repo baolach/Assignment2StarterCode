@@ -4,17 +4,12 @@
     
  
     timer doesnt reset
-    instructions still doesnt work after the start menu
- 
-        
     comment!!!
-   have cat throwstuff
-   
-   have option for different colours
    fix cassie walking
    cassie infront of laddesr
-   score  reset
-   when you reach the ball have a celebration
+   have option for different colours
+    Maybe change the startscreen so the instructions look better
+    
 */
 
 ArrayList<GameObject> objects = new ArrayList<GameObject>(); // an array list of objects . ie. a number of objects that can be reference by object.get(i)
@@ -27,8 +22,8 @@ PImage start;
 PImage instructs;
 PImage instructions;
 PImage sleep;
+PImage title;
 int level = 0;
-
 
 
 int numFrames = 2;  // The number of pictures in the animation
@@ -43,20 +38,19 @@ int num = 1; // how many on the screen at once
 int[] Xfall = new int[num]; // x position of things falling
 int[] Yfall = new int[num]; // y position of things falling
 float speed = 1;
-int lives = 1;
+int lives;
 int i;
 int f = 650;
 int time;
 
 boolean startscreen = true;
-boolean instructions_bool = false;
-
 
 
 import ddf.minim.*;
 Minim minim;
 AudioPlayer bark;
-
+AudioPlayer cheer;
+AudioPlayer bkg;
 
 
 Level ground = new Level(0,650,650,650); // ground level
@@ -70,14 +64,15 @@ Ladder ladder2 = new Ladder(100, 345); // 2nd ladder
 Ladder ladder3 = new Ladder(500, 225); // 3rd ladder
 Ladder ladder4 = new Ladder(130, 105); // 4th ladder
 
-//Green green1 = new Green(100,100); // 1st green bone
 
 
 void setup()
 {
   size(650, 650);
   frameRate(37);
-
+  
+  
+   
   setUpPlayerControllers();
   ladder = loadImage("ladder.png");
   cassie = loadImage("cassie.png");
@@ -85,8 +80,8 @@ void setup()
   bone = loadImage("bone.png");
   start = loadImage("start.jpg");
   instructs = loadImage("instructs.png");
-  instructions = loadImage("blur.jpg");
   sleep = loadImage("sleep.png");
+  title = loadImage("image.png");
 
    
   // adds in the objects
@@ -101,13 +96,13 @@ void setup()
    objects.add(ladder3);
    objects.add(ladder4);
    
-  //objects.add(green1);
  
   minim = new Minim(this);
-
-
-
+  bkg = minim.loadFile("EyeoftheTiger.mp3");
+  bkg.play();
   
+  
+
   images[0] = loadImage("walking2.png");
   images[1] = loadImage("walking1.png"); 
   
@@ -122,15 +117,16 @@ void setup()
 
 }
 
+
 void draw()
 {
-    background(10);
+  background(10);
   
   if( startscreen == true)
   {
     startscreen();
   }
-  else if( startscreen == false && instructions_bool == false && lives != 0)
+  else if( startscreen == false && lives != 0)
   {
     for(GameObject object: objects)
     {
@@ -145,16 +141,7 @@ void draw()
     endscreen();
     time = 0;
   }
-  else if(instructions_bool = true)
-  {
-    instructions();
-  }
   
-  
-  
- 
-  
- 
 }// end draw
 
 
@@ -167,17 +154,12 @@ void keyPressed()
    {
      exit();
    }
-   if( (key == 'e') || (key == 'E'))
-   {
-     startscreen = false;
-     instructions_bool = true;
-   }
+  
    if( (key == 'q') || (key == 'Q'))
    {
      startscreen = false;
-     instructions_bool = false;
      frameRate(37); //sets framerate back to 37 as on the endscreen the speed is slowed down to 1
-     lives = 3;
+     lives = 1;
      time = 0;
    }
    if( (key == 'r') || (key == 'R'))
@@ -186,6 +168,7 @@ void keyPressed()
      time = 0;
    }
 }
+
 
 void keyReleased()
 {
@@ -221,6 +204,7 @@ char buttonNameToKey(XML xml, String buttonName)
   return value.charAt(0);  
 }
 
+
 void setUpPlayerControllers()
 {
   XML xml = loadXML("arcade.xml");
@@ -235,8 +219,8 @@ void setUpPlayerControllers()
             , color(255,0,0)
             , playerXML);
           int x = (i + 1) * gap;
-          p.pos.x = width / 15; // position of cassie
-          p.pos.y = (height - (height / 7)) +5;
+          p.pos.x = 500;// width / 15; // position of cassie
+          p.pos.y = 70;//(height - (height / 7)) +5;
          objects.add(p);         
   }
 }

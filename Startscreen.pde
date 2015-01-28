@@ -1,18 +1,13 @@
-
+ int dblue = color(9,3,225); // dark blue
+ int rblue = color(0,215,255); // turquoise
+  
 void startscreen()
 {
-  
-   
- 
 
- 
-  
    float f = 650;
  
   
-  int dblue = 100; // dark blue
-  int rblue = 200; // royal blue
-  int lblue = #A7CAFF; // light blue= 3;
+ 
  
   float textposX = (f/10)/6 ; 
   float textposY = f/8;
@@ -31,51 +26,35 @@ void startscreen()
   float botY = (f/4)*3.2;
   
   
-  
 
-    start.resize( width, height);
-    image(start, 0, 0);
+
+    background(10);
     
-    image(instructs, 50 , 30);
-
+    image(title, 50,100);
     
     // top box
-    stroke(0,0, dblue); 
+    stroke(dblue); 
     strokeWeight( 5);
-    fill( 0,0,rblue); // light blue
+    fill( rblue); // light blue
     rect( topX1, topY1, boxWidth, boxHeight);
-    fill(225);
-    textSize(f/15);
-    text( "Press Q to Start", topX1+textposX , topY1+ textposY);
+    fill(dblue);
+    textSize(f/17);
+    text( "Press Q to Start", topX1+textposX+25, topY1+ textposY);
     
-    //middle box
-    stroke(0,0, dblue);
-    strokeWeight( 5);
-    fill( 0,0,rblue); // light blue
-    rect( midX1, midY1+boxgap, boxWidth, boxHeight);
-    fill(225);
-    textSize(f/22);
-    text( "Press E for Instructions", midX1+textposX2, midY1+ textposY2);
-  
-    /*
-    if((STARTSCREEN == true) && mouseX > topX1 && mouseX<topX1 +boxWidth && mouseY>topY1 && mouseY<topY1+boxHeight) // top box
+    if((startscreen == true) && mouseX > topX1 && mouseX<topX1 +boxWidth && mouseY>topY1 && mouseY<topY1+boxHeight) // top box
     {
-      fill(lblue); 
+      fill(dblue); 
       rect( topX1, topY1, boxWidth, boxHeight);
-      fill(100);
-      textSize(f/15);
-      text( "Press Q to Start", topX1+textposX , topY1+ textposY);
+      fill(rblue);
+      textSize(f/17);
+      text( "Press Q to Start", topX1+textposX+25, topY1+ textposY);
     }
+    
+    
+    image(instructs, 80 , 400); // shows the instructions
+
+    
   
-    if((STARTSCREEN == true) && mouseX > midX1 && mouseX<midX1+boxWidth && mouseY>midY1+boxgap && mouseY<midY1+boxHeight+boxgap)
-    {
-      fill(lblue); 
-      rect( midX1, midY1+boxgap, boxWidth, boxHeight);
-      fill(100);
-      textSize(f/22);
-      text( "Press E for Instructions", midX1+textposX2, midY1+ textposY2);
-    }
-    */
 }
 
 

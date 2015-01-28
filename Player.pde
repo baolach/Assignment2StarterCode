@@ -179,6 +179,21 @@ class Player extends GameObject // any variables in gameobject are global
         pos.y = height - (height / 7) + 5;
       }
     } // end if
+    
+    if( dist( pos.x + speed, pos.y, 600, 115) <= 62)
+    {
+      cheer = minim.loadFile("cheer.mp3"); 
+      cheer.play();
+      lives = 0;
+      pos.x = width / 15; // position of cassie
+      pos.y = (height - (height / 7)) +5;
+    
+   
+      
+    }
+
+        
+
   } // end for hit detection
   
   

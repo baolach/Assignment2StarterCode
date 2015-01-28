@@ -25,10 +25,10 @@ class Level extends GameObject
   {
     
     strokeWeight(25);
-    stroke(colour);
+    stroke(dblue);
     line(startPos.x,startPos.y, endPos.x, endPos.y);
-    image(ball, 600, 125);
-    ball.resize(25,25); // makes the image smaller than its orinigal dimensions
+    image(ball, 600, 115);
+    ball.resize(35,35); // makes the image smaller than its orinigal dimensions
 
 
   }
@@ -38,13 +38,13 @@ class Level extends GameObject
    if( lives != 0 || lives <0)
    {
      textSize(35);
-     fill(0, 0, 150);
+     fill(rblue);
      text("Lives:" +lives, 10, 45);
      
      time= frameCount;
    
      textSize(35);
-     fill(0, 0, 150);
+     fill(rblue);
      text("Time:" +time, 150, 45);
      
    }
@@ -58,21 +58,4 @@ class Level extends GameObject
  
 }
 
-class Ladder extends GameObject
-{
-  
-  PVector startPos;
-
-  Ladder(float x1, float y1) // constructor creating the ladder coordintates for each ladder object
-  {
-    this.startPos = new PVector(x1, y1);
-  }
-  
-  void display()
-  {
-    image(ladder , startPos.x, startPos.y);
-    
-  }
-  
-}
   
