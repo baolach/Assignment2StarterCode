@@ -10,6 +10,8 @@
     You must be at the very top or very bottom of a ladder in order to move left or right off it
     You have 3 lives. If you get hit 3 times Cassie gets worn out and must have a nap
     Your time inscreases as the game goes on so you must complete in the lowest amount of time while not getting hit by the evil cats
+    
+    The only problem I had really was that I couldn't get Cassie to climb on the right side of the ladder ie. on top onf the image of the ladder
         
 */
 
